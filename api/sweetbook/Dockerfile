@@ -1,7 +1,7 @@
 FROM maven:3.6.0-jdk-11-slim AS build
 WORKDIR /app
 COPY ./api/sweetbook /app/
-COPY pom.xml /app
+COPY ./api/sweetbook/pom.xml /app
 RUN mvn -f /app/pom.xml clean package
 
 FROM openjdk:11-jre-slim
