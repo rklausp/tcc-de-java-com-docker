@@ -1,0 +1,50 @@
+version: "3.1"
+
+services:
+  database:
+    image: postgres:14.7-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=sweetbook
+      - POSTGRES_USER=sweetbook
+      - POSTGRES_DB=sweetbook
+    volumes:
+      - postgresdb_volume:/var/lib/postgresql/data
+    networks:
+      - bridge
+  
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./api/sweetbook/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/sweetbook
+      - SPRING_DATASOURCE_USERNAME=sweetbook
+      - SPRING_DATASOURCE_PASSWORD=sweetbook
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks:
+      - bridge
+
+  front:
+    build:
+      context: .
+      dockerfile: ./front/sweetbook/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - bridge
+
+
+
+volumes:
+  postgresdb_volume:
+networks:
+  bridge:

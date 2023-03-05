@@ -1,0 +1,814 @@
+{
+	"info": {
+		"_postman_id": "d71ca530-4037-4344-b9f7-26fa6fd22338",
+		"name": "tcc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25728831"
+	},
+	"item": [
+		{
+			"name": "login [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "usuario@cwi.com.br",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incluir usuário [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nomeCompleto\": \"Teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"dataNascimento\": \"2002-02-02\",\n    \"senha\": \"123456\",\n    \"permissoes\": [\"USUARIO\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incluir usuário [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"senha\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detalha usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/perfil/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"perfil",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "meu perfil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/perfil",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fazer post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu brigadeiro\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "curtir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/1/curtir",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"1",
+						"curtir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enviar solicitacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/1/enviarSolicitacao",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"1",
+						"enviarSolicitacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aceitar solicitacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/4/aceitar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"4",
+						"aceitar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "desfazer amizade",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar amizades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/listarAmizades?text=&size=4&page=0&sort=id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"listarAmizades"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": ""
+						},
+						{
+							"key": "size",
+							"value": "4"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar amigos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/listarAmigos?text=&size=4&page=0&sort=nomeCompleto",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"listarAmigos"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": ""
+						},
+						{
+							"key": "size",
+							"value": "4"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "nomeCompleto"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostar todos usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/perfil/buscar?text=&size=4&page=0&sort=nomeCompleto",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"perfil",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": ""
+						},
+						{
+							"key": "size",
+							"value": "4"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "nomeCompleto"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar solicitacoes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/solicitacoes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"solicitacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar feed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/feed?size=4&page=0&sort=id,",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "4"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "id,"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is amigos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/amizades/4/isAmigo",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"amizades",
+						"4",
+						"isAmigo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detalhes de post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "descutir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/1/descurtir",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"1",
+						"descurtir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comentar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"parece incrivel!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/1/comentar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"1",
+						"comentar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar posts de usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/4/posts?size=3&page=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"4",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar curtidas posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/5/curtidas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"5",
+						"curtidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostar comentarios posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"texto\": \"meu pirulito\",\r\n    \"imagemUrl\": \"www.algumacoisa\",\r\n    \"tipo\": \"PRIVADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/5/comentarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"5",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar perfil",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagem\": \"https://this-person-does-not-exist.com/img/avatar-1181e46036c52aa0d3b519b686c64ca6.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/perfil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
