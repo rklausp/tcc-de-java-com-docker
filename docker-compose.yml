@@ -27,7 +27,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/sweetbook
       - SPRING_DATASOURCE_USERNAME=sweetbook
       - SPRING_DATASOURCE_PASSWORD=sweetbook
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     networks:
       - bridge
 
